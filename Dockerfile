@@ -1,10 +1,7 @@
-FROM node:20
+FROM nginx:alpine
 
-WORKDIR /calculator
+COPY . /usr/share/nginx/html
 
-COPY calculator.html .
-COPY server.js .
+EXPOSE 80
 
-EXPOSE 5000
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
